@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <div>
+
+    <h2 id="doctors">RI Doctor Visualizations</h2>
+    <a href="{{ url_for('index') }}"> &larr; back to index </a>
+
+    <h4 id="waiting">Loading JSON data, please wait...</h4>
+
+  </div>
+
+  <div id="visualizations">
+
+
+    <h5>Gender</h5>
+    <canvas id="chartOne" class="chart"></canvas>
+
+  </div>
+
+{% endblock %}
