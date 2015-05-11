@@ -1,5 +1,5 @@
 filter = {
-    "State": "DE"
+    "State": "RI"
 }
 
 projection = {

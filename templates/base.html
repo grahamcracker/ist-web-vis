@@ -23,7 +23,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+      google.load('visualization', '1', {'packages': ['geochart']});
+      google.setOnLoadCallback(startVisuals);
+    </script>
   </body>
 
 </html>

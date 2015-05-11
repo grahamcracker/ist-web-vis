@@ -5,7 +5,7 @@ function ctx(chartID){
   return $("#" + chartID).get(0).getContext("2d");
 }
 
-$(function(){
+function startVisuals(){
 
   $(".chart").each(function(){
 
@@ -27,6 +27,8 @@ $(function(){
 
       var doctors = data.doctors;
 
+      $("#doctor-count").html("(" + doctors.length + " total)");
+
       var c1_data = [
         {
           value: 0,
@@ -40,6 +42,8 @@ $(function(){
         }
       ];
 
+      var c2_data = [];
+
       $.each(data.doctors, function(position, item) {
 
         /* chart 1 */
@@ -49,13 +53,31 @@ $(function(){
           c1_data[1].value++;
         }
 
+        /* chart 2 */
+        var ms = item["Medical school name"];
+        var index = c2_data.map(function(e) { return e.name; }).indexOf(ms);
+
+        if(index != -1){
+          c2_data[index].number++;
+        }else if(ms != "OTHER"){
+          c2_data.push({name: ms, number: 1});
+        }
+
       });
 
-      var chartOne = new Chart(ctx("chartOne")).Pie(c1_data, {legendTemplate: "Chart One"});
+      c2_data = c2_data.sort(function (a, b) {
+        return b.number - a.number;
+      });
+
+      $.each(c2_data, function(position, item){
+        $("#chartTwoBody").append("<tr><td>" + item.name + "</td><td>" + item.number + "</td></tr>");
+      });
+
+      var chartOne = new Chart(ctx("chartOne")).Pie(c1_data);
 
     });
 
 
   }
 
-});
+}

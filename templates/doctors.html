@@ -4,7 +4,7 @@
 
   <div>
 
-    <h2 id="doctors">RI Doctor Visualizations</h2>
+    <h2 id="doctors">RI Doctors <span id="doctor-count"></span></h2>
     <a href="{{ url_for('index') }}"> &larr; back to index </a>
 
     <h4 id="waiting">Loading JSON data, please wait...</h4>
@@ -16,6 +16,22 @@
 
     <h5>Gender</h5>
     <canvas id="chartOne" class="chart"></canvas>
+
+    <h5>Top Medical Schools</h5>
+    <div id="chartTwo" class="chart" style="max-height: 1000px; overflow: scroll;">
+
+
+      <table>
+        <thead>
+          <th>Medical School</th>
+          <th># Physicians</th>
+        </thead>
+        <tbody id="chartTwoBody">
+
+        </tbody>
+      </table>
+
+    </div>
 
   </div>
 
