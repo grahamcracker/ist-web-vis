@@ -3,6 +3,7 @@
 }
 #waiting{
   margin-top: 8em;
+  color: #999;
 }
 #visualizations{
   margin-top: 2em;
@@ -10,4 +11,8 @@
 .chart{
   display: block;
   margin-top: 1em;
+  margin-bottom: 2em;
+}
+.ctitle,.ctable{
+  display: none;
 }

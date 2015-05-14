@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+
+  <script src="{{ url_for('static', filename='js/tips.js') }}"></script>
+  <script src="https://www.google.com/jsapi"></script>
+  <script>
+    google.load("visualization", "1.1", {packages:["wordtree"]});
+    google.setOnLoadCallback(startVisuals);
+  </script>
+
+{% endblock %}
+
+{% block body %}
+
+  <div>
+
+    <h2>Yelp Tips Word Trees <span id="tips-count"></span></h2>
+    <p><em>Source:</em> Yelp Academic Dataset </p>
+    <a href="{{ url_for('index') }}"> &larr; back to index </a>
+
+    <h4 id="waiting">Loading data and graphs, please wait...</h4>
+
+  </div>
+
+  <div id="visualizations">
+
+    <h5 class="ctitle">Word Tree for words containing 'watch'</h5>
+    <div id="chart1" class="chart"></div>
+
+  </div>
+
+{% endblock %}
